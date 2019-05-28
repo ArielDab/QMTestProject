@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.7.3 on win32)" generated="20190528 11:19:46.588" rpa="false">
+<suite id="s1" name="TestRed" source="c:\RED_robot\workspace\TestRed">
+<suite id="s1-s1" name="TestSuite" source="c:\RED_robot\workspace\TestRed\TestSuite.robot">
+<kw name="Open Browser With Given Url And Browser" type="setup">
+<arguments>
+<arg>${tested_web_url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Download Newest Driver">
+<arguments>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${path}==${None}</arg>
+<arg>c:\\RED_robot\\workspace\\TestRed</arg>
+<arg>${path}</arg>
+</arguments>
+<assign>
+<var>${current_path}</var>
+</assign>
+<msg timestamp="20190528 11:19:47.011" level="INFO">${current_path} = c:\RED_robot\workspace\TestRed</msg>
+<status status="PASS" starttime="20190528 11:19:47.010" endtime="20190528 11:19:47.011"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${current_path}</arg>
+</arguments>
+<msg timestamp="20190528 11:19:47.011" level="INFO">c:\RED_robot\workspace\TestRed</msg>
+<status status="PASS" starttime="20190528 11:19:47.011" endtime="20190528 11:19:47.011"></status>
+</kw>
+<kw name="Download Newest Webdriver" library="WebDriverManagerRobot">
+<arguments>
+<arg>${current_path}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20190528 11:19:47.762" level="INFO">Download URL: https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-win64.zip</msg>
+<msg timestamp="20190528 11:19:48.267" level="INFO">Skipping download. File c:\RED_robot\workspace\TestRed\gecko\v0.24.0\geckodriver-v0.24.0-win64.zip already on filesystem.</msg>
+<msg timestamp="20190528 11:19:48.958" level="INFO">File c:\RED_robot\workspace\TestRed\geckodriver.exe already exists and will be overwritten.</msg>
+<msg timestamp="20190528 11:19:48.979" level="INFO">Firefox driver downloaded c:\RED_robot\workspace\TestRed</msg>
+<status status="PASS" starttime="20190528 11:19:47.011" endtime="20190528 11:19:48.979"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:19:47.010" endtime="20190528 11:19:48.979"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${tested_web_url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20190528 11:19:48.980" level="INFO">Opening browser 'firefox' to base url 'http://www.qualityminds.de'.</msg>
+<status status="PASS" starttime="20190528 11:19:48.979" endtime="20190528 11:19:57.492"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1400</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:19:57.492" endtime="20190528 11:19:57.526"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Click Element</arg>
+<arg>xpath:${button_cookies_allow}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_cookies_allow}</arg>
+</arguments>
+<msg timestamp="20190528 11:19:57.526" level="INFO">Clicking element 'xpath://a[@class='cc-btn cc-allow']'.</msg>
+<status status="PASS" starttime="20190528 11:19:57.526" endtime="20190528 11:19:58.743"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:19:57.526" endtime="20190528 11:19:58.743"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:19:47.010" endtime="20190528 11:19:58.743"></status>
+</kw>
+<test id="s1-s1-t1" name="Test case 1">
+<kw name="Go To Main Page" type="setup">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${tested_web_url}</arg>
+</arguments>
+<msg timestamp="20190528 11:19:58.745" level="INFO">Opening url 'http://www.qualityminds.de'</msg>
+<status status="PASS" starttime="20190528 11:19:58.745" endtime="20190528 11:20:00.130"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:19:58.744" endtime="20190528 11:20:00.130"></status>
+</kw>
+<kw name="Verify that “Kontakt aufnehmen” button links to email hello@qualityminds_de">
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_kontakt_mail_xpath}</arg>
+<arg>href</arg>
+</arguments>
+<assign>
+<var>${mail_button_value}</var>
+</assign>
+<msg timestamp="20190528 11:20:00.156" level="INFO">${mail_button_value} = mailto:%20hello@qualityminds.de</msg>
+<status status="PASS" starttime="20190528 11:20:00.132" endtime="20190528 11:20:00.156"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>At main page for kontakt button there is value [${mail_button_value}], should be [${expected_mailto_value}]</arg>
+</arguments>
+<assign>
+<var>${tc1_stp2_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:00.156" level="INFO">${tc1_stp2_fail_msg} = At main page for kontakt button there is value [mailto:%20hello@qualityminds.de], should be [mailto:hello@qualityminds.com]</msg>
+<status status="PASS" starttime="20190528 11:20:00.156" endtime="20190528 11:20:00.156"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${mail_button_value}'!='${expected_mailto_value}'</arg>
+<arg>Fail</arg>
+<arg>${tc1_stp2_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${mail_button_value}'!='${expected_mailto_value}'</arg>
+<arg>Fail</arg>
+<arg>${tc1_stp2_fail_msg}</arg>
+</arguments>
+<kw name="Fail" library="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<arguments>
+<arg>${tc1_stp2_fail_msg}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:00.157" level="FAIL">At main page for kontakt button there is value [mailto:%20hello@qualityminds.de], should be [mailto:hello@qualityminds.com]</msg>
+<status status="FAIL" starttime="20190528 11:20:00.157" endtime="20190528 11:20:00.157"></status>
+</kw>
+<status status="FAIL" starttime="20190528 11:20:00.156" endtime="20190528 11:20:00.157"></status>
+</kw>
+<status status="FAIL" starttime="20190528 11:20:00.156" endtime="20190528 11:20:00.157"></status>
+</kw>
+<status status="FAIL" starttime="20190528 11:20:00.131" endtime="20190528 11:20:00.157"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_kontakt_main_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:00.158" level="INFO">Clicking element 'xpath://ul[@id='top-menu']//a[contains(text(),'Kontakt')]'.</msg>
+<status status="PASS" starttime="20190528 11:20:00.158" endtime="20190528 11:20:03.258"></status>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<doc>Returns the current browser URL.</doc>
+<assign>
+<var>${current_location}</var>
+</assign>
+<msg timestamp="20190528 11:20:03.261" level="INFO">${current_location} = https://qualityminds.de/kontakt/</msg>
+<status status="PASS" starttime="20190528 11:20:03.258" endtime="20190528 11:20:03.261"></status>
+</kw>
+<kw name="Verify that the page contains same email address">
+<arguments>
+<arg>${current_location}</arg>
+</arguments>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Get WebElement</arg>
+<arg>${mail_kontakt_xpath}</arg>
+</arguments>
+<assign>
+<var>${status_mail_kontakt}</var>
+</assign>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>${mail_kontakt_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:03.262" endtime="20190528 11:20:03.287"></status>
+</kw>
+<msg timestamp="20190528 11:20:03.287" level="INFO">${status_mail_kontakt} = True</msg>
+<status status="PASS" starttime="20190528 11:20:03.261" endtime="20190528 11:20:03.287"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>On ${current_location} there is no [${expected_mailto_value}] text.</arg>
+</arguments>
+<assign>
+<var>${tc1_stp4_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:03.288" level="INFO">${tc1_stp4_fail_msg} = On https://qualityminds.de/kontakt/ there is no [mailto:hello@qualityminds.com] text.</msg>
+<status status="PASS" starttime="20190528 11:20:03.288" endtime="20190528 11:20:03.288"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${status_mail_kontakt}==False</arg>
+<arg>Fail</arg>
+<arg>${tc1_stp4_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${status_mail_kontakt}==False</arg>
+<arg>Fail</arg>
+<arg>${tc1_stp4_fail_msg}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:03.288" endtime="20190528 11:20:03.288"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:03.288" endtime="20190528 11:20:03.288"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:03.261" endtime="20190528 11:20:03.290"></status>
+</kw>
+<status status="FAIL" starttime="20190528 11:19:58.743" endtime="20190528 11:20:03.290" critical="yes">At main page for kontakt button there is value [mailto:%20hello@qualityminds.de], should be [mailto:hello@qualityminds.com]</status>
+</test>
+<test id="s1-s1-t2" name="Test case 2">
+<kw name="Go To Main Page" type="setup">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${tested_web_url}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:03.292" level="INFO">Opening url 'http://www.qualityminds.de'</msg>
+<status status="PASS" starttime="20190528 11:20:03.292" endtime="20190528 11:20:04.823"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:03.291" endtime="20190528 11:20:04.824"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_main_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:04.825" endtime="20190528 11:20:04.852"></status>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<doc>Simulates hovering mouse over the element ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_main_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:04.853" level="INFO">Simulating Mouse Over on element 'xpath://ul[@id='top-menu']//a[contains(text(),'Portfolio')]//..'.</msg>
+<status status="PASS" starttime="20190528 11:20:04.853" endtime="20190528 11:20:05.130"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_submenu_webautoandmobile_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:05.131" endtime="20190528 11:20:05.149"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_submenu_webautoandmobile_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:05.150" level="INFO">Clicking element 'xpath://ul[@id='top-menu']//a[contains(text(),'Web, Automation &amp; Mobile Testing')]'.</msg>
+<status status="PASS" starttime="20190528 11:20:05.150" endtime="20190528 11:20:06.640"></status>
+</kw>
+<kw name="Verify that the Portfolio menu is hightlighted">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_main_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:06.641" endtime="20190528 11:20:06.674"></status>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_main_xpath}</arg>
+<arg>class</arg>
+</arguments>
+<assign>
+<var>${class_values}</var>
+</assign>
+<msg timestamp="20190528 11:20:06.684" level="INFO">${class_values} = mega-menu top-menu-item menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current_page_ancestor menu-item-has-children menu-item-220</msg>
+<status status="PASS" starttime="20190528 11:20:06.674" endtime="20190528 11:20:06.684"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Contain</arg>
+<arg>${class_values}</arg>
+<arg>current-menu-ancestor</arg>
+</arguments>
+<assign>
+<var>${status_highlighted_value}</var>
+</assign>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${class_values}</arg>
+<arg>current-menu-ancestor</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:06.684" endtime="20190528 11:20:06.684"></status>
+</kw>
+<msg timestamp="20190528 11:20:06.685" level="INFO">${status_highlighted_value} = True</msg>
+<status status="PASS" starttime="20190528 11:20:06.684" endtime="20190528 11:20:06.685"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Porfolio button is not hightlighted</arg>
+</arguments>
+<assign>
+<var>${tc2_stp4_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:06.685" level="INFO">${tc2_stp4_fail_msg} = Porfolio button is not hightlighted</msg>
+<status status="PASS" starttime="20190528 11:20:06.685" endtime="20190528 11:20:06.685"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${status_highlighted_value}==False</arg>
+<arg>Fail</arg>
+<arg>${tc2_stp4_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${status_highlighted_value}==False</arg>
+<arg>Fail</arg>
+<arg>${tc2_stp4_fail_msg}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:06.685" endtime="20190528 11:20:06.686"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:06.685" endtime="20190528 11:20:06.686"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:06.641" endtime="20190528 11:20:06.686"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_webautoandmobile_mobile_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:06.686" endtime="20190528 11:20:06.702"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_portfolio_webautoandmobile_mobile_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:06.702" level="INFO">Clicking element 'xpath://div[@id='team-tab-three-title-desktop']//div[@class='sb_mod_acf_single_item clearfix'][contains(text(),'Mobile')]'.</msg>
+<status status="PASS" starttime="20190528 11:20:06.702" endtime="20190528 11:20:06.942"></status>
+</kw>
+<kw name="Verify the download link for the flyer">
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${button_portfolio_webautoandmobile_mobile_flyer_downl_xpath}</arg>
+<arg>href</arg>
+</arguments>
+<assign>
+<var>${button_value_href}</var>
+</assign>
+<msg timestamp="20190528 11:20:06.964" level="INFO">${button_value_href} = https://qualityminds.de/app/uploads/2018/11/Find-The-Mobile-Bug-Session.pdf</msg>
+<status status="PASS" starttime="20190528 11:20:06.943" endtime="20190528 11:20:06.964"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>There is [${button_value_href}] but should be ${expected_download_flyer_value}</arg>
+</arguments>
+<assign>
+<var>${tc2_stp6_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:06.965" level="INFO">${tc2_stp6_fail_msg} = There is [https://qualityminds.de/app/uploads/2018/11/Find-The-Mobile-Bug-Session.pdf] but should be https://qualityminds.de/app/uploads/2018/11/Find-The-Mobile-Bug-Session.pdf</msg>
+<status status="PASS" starttime="20190528 11:20:06.964" endtime="20190528 11:20:06.965"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>'${button_value_href}'!='${expected_download_flyer_value}'</arg>
+<arg>Fail</arg>
+<arg>${tc2_stp6_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${button_value_href}'!='${expected_download_flyer_value}'</arg>
+<arg>Fail</arg>
+<arg>${tc2_stp6_fail_msg}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:06.965" endtime="20190528 11:20:06.966"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:06.965" endtime="20190528 11:20:06.966"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:06.943" endtime="20190528 11:20:06.966"></status>
+</kw>
+<kw name="Verify if file is available via download link">
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<doc>Returns value of ``attribute`` from element ``locator``.</doc>
+<arguments>
+<arg>${button_portfolio_webautoandmobile_mobile_flyer_downl_xpath}</arg>
+<arg>href</arg>
+</arguments>
+<assign>
+<var>${button_value_href}</var>
+</assign>
+<msg timestamp="20190528 11:20:06.982" level="INFO">${button_value_href} = https://qualityminds.de/app/uploads/2018/11/Find-The-Mobile-Bug-Session.pdf</msg>
+<status status="PASS" starttime="20190528 11:20:06.967" endtime="20190528 11:20:06.982"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Go To</arg>
+<arg>${button_value_href}</arg>
+</arguments>
+<assign>
+<var>${status_ok}</var>
+</assign>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${button_value_href}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:06.982" level="INFO">Opening url 'https://qualityminds.de/app/uploads/2018/11/Find-The-Mobile-Bug-Session.pdf'</msg>
+<status status="PASS" starttime="20190528 11:20:06.982" endtime="20190528 11:20:07.165"></status>
+</kw>
+<msg timestamp="20190528 11:20:07.165" level="INFO">${status_ok} = True</msg>
+<status status="PASS" starttime="20190528 11:20:06.982" endtime="20190528 11:20:07.165"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<assign>
+<var>${tc2_stp7_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:07.166" level="INFO">${tc2_stp7_fail_msg} = </msg>
+<status status="PASS" starttime="20190528 11:20:07.165" endtime="20190528 11:20:07.166"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${status_ok}==False</arg>
+<arg>Fail</arg>
+<arg>${tc2_stp7_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${status_ok}==False</arg>
+<arg>Fail</arg>
+<arg>${tc2_stp7_fail_msg}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:07.166" endtime="20190528 11:20:07.167"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:07.166" endtime="20190528 11:20:07.167"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:06.967" endtime="20190528 11:20:07.167"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:03.291" endtime="20190528 11:20:07.167" critical="yes"></status>
+</test>
+<test id="s1-s1-t3" name="Test Case 3">
+<kw name="Go To Main Page" type="setup">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${tested_web_url}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:07.176" level="INFO">Opening url 'http://www.qualityminds.de'</msg>
+<status status="PASS" starttime="20190528 11:20:07.175" endtime="20190528 11:20:08.738"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:07.175" endtime="20190528 11:20:08.738"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath:${button_main_kariere_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:08.739" endtime="20190528 11:20:08.790"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_main_kariere_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:08.791" level="INFO">Clicking element 'xpath://ul[@id='top-menu']//a[contains(text(),'Karriere')]'.</msg>
+<status status="PASS" starttime="20190528 11:20:08.790" endtime="20190528 11:20:10.507"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath:${button_kariere_bewirb_dich_jetztz}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:10.507" endtime="20190528 11:20:10.536"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_kariere_bewirb_dich_jetztz}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:10.537" level="INFO">Clicking element 'xpath://a[contains(text(),'Bewirb dich jetzt!')]'.</msg>
+<status status="PASS" starttime="20190528 11:20:10.537" endtime="20190528 11:20:11.680"></status>
+</kw>
+<kw name="Click Submit Button Kontakt Formular">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath:${button_kontaktformular_jetzt_bewerben_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:11.681" endtime="20190528 11:20:11.723"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_kontaktformular_jetzt_bewerben_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:11.723" level="INFO">Clicking element 'xpath://input[@type='submit']'.</msg>
+<status status="PASS" starttime="20190528 11:20:11.723" endtime="20190528 11:20:11.994"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:11.681" endtime="20190528 11:20:11.994"></status>
+</kw>
+<kw name="Verify the correct warnig message is displayed">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Page Should Contain Element</arg>
+<arg>xpath:${warning_not_accepted}</arg>
+</arguments>
+<assign>
+<var>${warning_status}</var>
+</assign>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath:${warning_not_accepted}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:12.001" level="INFO">Current page contains element 'xpath://*[contains(text(),'Dies ist ein Pflichtfeld.')]'.</msg>
+<status status="PASS" starttime="20190528 11:20:11.995" endtime="20190528 11:20:12.001"></status>
+</kw>
+<msg timestamp="20190528 11:20:12.001" level="INFO">${warning_status} = True</msg>
+<status status="PASS" starttime="20190528 11:20:11.995" endtime="20190528 11:20:12.001"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>There is no warnig status.</arg>
+</arguments>
+<assign>
+<var>${tc3_stp5_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:12.001" level="INFO">${tc3_stp5_fail_msg} = There is no warnig status.</msg>
+<status status="PASS" starttime="20190528 11:20:12.001" endtime="20190528 11:20:12.001"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${warning_status}==False</arg>
+<arg>Fail</arg>
+<arg>${tc3_stp5_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${warning_status}==False</arg>
+<arg>Fail</arg>
+<arg>${tc3_stp5_fail_msg}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:12.002" endtime="20190528 11:20:12.002"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:12.002" endtime="20190528 11:20:12.002"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:11.995" endtime="20190528 11:20:12.002"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${input_kontaktformular_Vorname}</arg>
+<arg>Ariel</arg>
+</arguments>
+<msg timestamp="20190528 11:20:12.003" level="INFO">Typing text 'Ariel' into text field 'xpath://input[@placeholder='Vorname*']'.</msg>
+<status status="PASS" starttime="20190528 11:20:12.003" endtime="20190528 11:20:12.069"></status>
+</kw>
+<kw name="Click Submit Button Kontakt Formular">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath:${button_kontaktformular_jetzt_bewerben_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:12.070" endtime="20190528 11:20:12.103"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_kontaktformular_jetzt_bewerben_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:12.103" level="INFO">Clicking element 'xpath://input[@type='submit']'.</msg>
+<status status="PASS" starttime="20190528 11:20:12.103" endtime="20190528 11:20:12.347"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:12.069" endtime="20190528 11:20:12.348"></status>
+</kw>
+<kw name="Verify the correct warnig message is displayed">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Page Should Contain Element</arg>
+<arg>xpath:${warning_not_accepted}</arg>
+</arguments>
+<assign>
+<var>${warning_status}</var>
+</assign>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath:${warning_not_accepted}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:12.365" level="INFO">Current page contains element 'xpath://*[contains(text(),'Dies ist ein Pflichtfeld.')]'.</msg>
+<status status="PASS" starttime="20190528 11:20:12.352" endtime="20190528 11:20:12.366"></status>
+</kw>
+<msg timestamp="20190528 11:20:12.366" level="INFO">${warning_status} = True</msg>
+<status status="PASS" starttime="20190528 11:20:12.351" endtime="20190528 11:20:12.366"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>There is no warnig status.</arg>
+</arguments>
+<assign>
+<var>${tc3_stp5_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:12.368" level="INFO">${tc3_stp5_fail_msg} = There is no warnig status.</msg>
+<status status="PASS" starttime="20190528 11:20:12.367" endtime="20190528 11:20:12.368"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${warning_status}==False</arg>
+<arg>Fail</arg>
+<arg>${tc3_stp5_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${warning_status}==False</arg>
+<arg>Fail</arg>
+<arg>${tc3_stp5_fail_msg}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:12.369" endtime="20190528 11:20:12.370"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:12.368" endtime="20190528 11:20:12.370"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:12.350" endtime="20190528 11:20:12.371"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${input_kontaktformular_Email}</arg>
+<arg>dabkowski.ariel@gmail.com</arg>
+</arguments>
+<msg timestamp="20190528 11:20:12.373" level="INFO">Typing text 'dabkowski.ariel@gmail.com' into text field 'xpath://input[@placeholder='Email*']'.</msg>
+<status status="PASS" starttime="20190528 11:20:12.372" endtime="20190528 11:20:12.522"></status>
+</kw>
+<kw name="Click Submit Button Kontakt Formular">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath:${button_kontaktformular_jetzt_bewerben_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:12.523" endtime="20190528 11:20:12.540"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_kontaktformular_jetzt_bewerben_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:12.541" level="INFO">Clicking element 'xpath://input[@type='submit']'.</msg>
+<status status="PASS" starttime="20190528 11:20:12.541" endtime="20190528 11:20:12.777"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:12.523" endtime="20190528 11:20:12.778"></status>
+</kw>
+<kw name="Attach file with Weiter Dateien hochaden button">
+<kw name="Choose File" library="SeleniumLibrary">
+<doc>Inputs the ``file_path`` into file input field ``locator``.</doc>
+<arguments>
+<arg>xpath:${button_kontaktformular_DateienHochladen}</arg>
+<arg>c:\\RED_robot\\workspace\\TestRed\\${expected_file_name_to_be_uploaded}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:12.780" endtime="20190528 11:20:12.871"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath:${expected_file_to_be_uploaded_xpath}</arg>
+</arguments>
+<assign>
+<var>${upload_file_status}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath:${expected_file_to_be_uploaded_xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:12.871" endtime="20190528 11:20:12.894"></status>
+</kw>
+<msg timestamp="20190528 11:20:12.894" level="INFO">${upload_file_status} = True</msg>
+<status status="PASS" starttime="20190528 11:20:12.871" endtime="20190528 11:20:12.894"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>There is no uploaded file - [${expected_file_name_to_be_uploaded}]</arg>
+</arguments>
+<assign>
+<var>${tc3_stp11_fail_msg}</var>
+</assign>
+<msg timestamp="20190528 11:20:12.895" level="INFO">${tc3_stp11_fail_msg} = There is no uploaded file - [test.txt]</msg>
+<status status="PASS" starttime="20190528 11:20:12.895" endtime="20190528 11:20:12.895"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${upload_file_status}==False</arg>
+<arg>Fail</arg>
+<arg>${tc3_stp11_fail_msg}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${upload_file_status}==False</arg>
+<arg>Fail</arg>
+<arg>${tc3_stp11_fail_msg}</arg>
+</arguments>
+<status status="PASS" starttime="20190528 11:20:12.895" endtime="20190528 11:20:12.895"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:12.895" endtime="20190528 11:20:12.895"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:12.779" endtime="20190528 11:20:12.896"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath:${checkbox_kontaktformular_xpath}</arg>
+</arguments>
+<msg timestamp="20190528 11:20:12.896" level="INFO">Clicking element 'xpath://input[@type='checkbox']'.</msg>
+<status status="PASS" starttime="20190528 11:20:12.896" endtime="20190528 11:20:13.124"></status>
+</kw>
+<status status="PASS" starttime="20190528 11:20:07.174" endtime="20190528 11:20:13.125" critical="yes"></status>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="teardown">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20190528 11:20:13.130" endtime="20190528 11:20:14.060"></status>
+</kw>
+<status status="FAIL" starttime="20190528 11:19:46.613" endtime="20190528 11:20:14.060"></status>
+</suite>
+<status status="FAIL" starttime="20190528 11:19:46.589" endtime="20190528 11:20:14.064"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1">Critical Tests</stat>
+<stat pass="2" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" id="s1" name="TestRed">TestRed</stat>
+<stat pass="2" fail="1" id="s1-s1" name="TestSuite">TestRed.TestSuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,15 @@
+==============================================================================
+TestSuite                                                                     
+==============================================================================
+Test case 1                                                           | FAIL |
+At main page for kontakt button there is value [mailto:%20hello@qualityminds.de], should be [mailto:hello@qualityminds.com]
+------------------------------------------------------------------------------
+Test case 2                                                           | PASS |
+------------------------------------------------------------------------------
+Test Case 3                                                           | PASS |
+------------------------------------------------------------------------------
+TestSuite                                                             | FAIL |
+3 critical tests, 2 passed, 1 failed
+3 tests total, 2 passed, 1 failed
+==============================================================================
+Output:  c:\RED_robot\workspace\TestRed\pabot_results\TestSuite\output.xml

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="pabot.pabotlib" type="library" format="ROBOT" generated="20190528 11:11:40">
+<version></version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>Documentation for library ``pabot.pabotlib``.</doc>
+</keywordspec>
