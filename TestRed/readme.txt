@@ -3,6 +3,7 @@ Python 3.7+ req
 run cmd as admin to install below commands
 python -m pip install --upgrade pip
 python -m pip install robotframework
+python -m pip install webdrivermanager
 python -m pip install --upgrade robotframework-seleniumlibrary
 
 
