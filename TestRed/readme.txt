@@ -3,7 +3,6 @@ Python 3.7+ req
 run cmd as admin to install below commands
 python -m pip install --upgrade pip
 python -m pip install robotframework
-python -m pip install --pre --upgrade robotframework-ride==1.7.4a1
 python -m pip install --upgrade robotframework-seleniumlibrary
 
 
