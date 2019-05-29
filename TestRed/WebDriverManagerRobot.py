@@ -20,5 +20,3 @@ class WebDriverManagerRobot(object):
             print("Chrome driver downloaded " + dir_path)
         else:
             print("atm there is only support for firefox, chrome")
-    def three_variables(one, two, three):
-        print(one + two + three)
